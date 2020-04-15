@@ -1,0 +1,47 @@
+{% extends "statics.jinja2"%}
+{% block content %}
+<body>
+    <div class="login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Easy Accounting</h1>
+                   <!-- <h1>Dashboard</h1>-->
+                  </div>
+                  <p>If you are returning visitor, please provide your Email and Password.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form method="post" class="form-validate mb-4">
+                      <div class="form-group">
+                      <input id="email" type="text" name="email" required data-msg="Please enter your Email" class="input-material">
+                      <label for="email" class="label-material">Email</label>
+                    </div>
+                    <div class="form-group">
+                      <input id="password" type="password" name="password" required data-msg="Please enter your password" class="input-material">
+                      <label for="password" class="label-material">Password</label>
+                    </div>
+                    <div class="error">{{error}}</div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href={{url_for('users.register_user')}} class="signup">Signup</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p style="color: lightseagreen; font-weight: bolder">Design by <a href="#" class="external">Vaibhav Bhandari</a></p>
+      </div>
+    </div>
+{% endblock %}

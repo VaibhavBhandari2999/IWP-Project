@@ -1,0 +1,145 @@
+<div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+        <!-- Sidebar Header-->
+        <div class="sidebar-header d-flex align-items-center">
+          <div class="avatar"><img src="{{url_for('static', filename='img/avatar-2.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="title">
+            <h1 class="h5">Vaibhav Bhandari</h1>
+            <p>Software Designer</p>
+          </div>
+        </div>
+        <!-- Sidebar Navidation Menus-->
+        <span class="heading">Main</span>
+        <ul class="list-unstyled">
+          <li> <a href="{{ url_for('users.index') }}" class="{{ '' if not index_page else 'color_expan' }}"> <i class="icon-home"></i>Home</a></li>
+        </ul>
+        <ul class="list-unstyled">
+          <li> <a href="{{ url_for('companies.index') }}" class="{{ '' if not company_page else 'color_expan' }}"> <i class="icon-presentation"></i>Company</a></li>
+        </ul>
+        <ul class="list-unstyled">
+          <li data-toggle="modal" data-target="#database"> <a href="#"> <i class="icon-cloud"></i>Database</a></li>
+        </ul>
+        <span class="heading">Masters</span>
+        <ul class="list-unstyled">
+         <!-- <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+          <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
+          <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+          <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>-->
+
+            <li><a href="#exampledropdownDropdown0" aria-expanded="{{ 'false' if not (new_item_page or item_list_page) else 'true'}}" data-toggle="collapse" >
+          	<i class="icon-padnote"></i>Items</a>
+            <ul id="exampledropdownDropdown0" class="{{ 'collapse' if not (new_item_page or item_list_page) else '' }} list-unstyled ">
+				<li><a href="{{ url_for('items.new_item') }}"  class={{ '' if not new_item_page else 'color_expan' }}>Create</a></li>
+                <li><a href="{{ url_for('items.index') }}" class="{{ '' if not item_list_page else 'color_expan ' }}">List</a></li>
+            </ul>
+        </li>
+            <li><a href="#exampledropdownDropdown1" data-toggle="collapse" aria-expanded="{{ 'false' if not (new_party_page or party_list_page) else 'true'}}">
+          	<i class="icon-padnote"></i>Party</a>
+            <ul id="exampledropdownDropdown1" class="{{ 'collapse' if not (new_party_page or party_list_page)else '' }} list-unstyled ">
+				<li><a href="{{ url_for('parties.new_party') }}" class={{ '' if not new_party_page else 'color_expan' }}>Create</a></li>
+                <li><a href="{{ url_for('parties.index') }}" class="{{ '' if not party_list_page else 'color_expan' }}">List</a></li>
+            </ul>
+        </li>
+
+
+          <!--li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse" >
+          	<i class="icon-windows"></i>Accounts Information </a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+				<li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">Ledgers</a>
+              		<ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+              			<li><a href="{{'/account_info/ledgers/create'}}">Create</a></li>
+              			<li><a href="#">Display</a></li>
+              			<li><a href="#">Alter</a></li>
+              		</ul>
+				</li>
+              <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse">Groups</a>
+              		<ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
+              			<li><a href="{{'/account_info/groups/create'}}">Create</a></li>
+              			<li><a href="{{'/account_info/groups/display'}}">Display</a></li>
+              			<li><a href="{{'/account_info/groups/create'}}">Alter</a></li>
+              		</ul>
+              </li>
+              <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse">Voucher Types</a>
+              <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
+              			<li><a href="#">Create</a></li>
+              			<li><a href="#">Display</a></li>
+              			<li><a href="#">Alter</a></li>
+              		</ul>
+              	</li>
+            </ul>
+          </li>
+          <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+          	<i class="icon-windows"></i>Inventory Information </a>
+            <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+				<li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse">Stock Groups</a>
+              		<ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
+              			<li><a href="{{'/inventory_info/stock_group/create'}}">Create</a></li>
+              			<li><a href="#">Alter</a></li>
+              			<li><a href="#">Delete</a></li>
+              		</ul>
+				</li>
+              <li><a href="#exampledropdownDropdown6" aria-expanded="false" data-toggle="collapse">Stock Items</a>
+              <ul id="exampledropdownDropdown6" class="collapse list-unstyled ">
+              			<li><a href="{{'/inventory_info/stock_item/create'}}">Create</a></li>
+              			<li><a href="#">Display</a></li>
+              			<li><a href="#">Alter</a></li>
+              		</ul>
+              	</li>
+              <li><a href="#exampledropdownDropdown7" aria-expanded="false" data-toggle="collapse">Units of Measurement</a>
+              	<ul id="exampledropdownDropdown7" class="collapse list-unstyled ">
+              			<li><a href="{{'/inventory_info/stock_unit/create'}}">Create</a></li>
+              			<li><a href="#">Display</a></li>
+              			<li><a href="#">Alter</a></li>
+              		</ul>
+              </li>
+              <li><a href="#exampledropdownDropdown8" aria-expanded="false" data-toggle="collapse">Voucher Types</a>
+              	<ul id="exampledropdownDropdown8" class="collapse list-unstyled ">
+              			<li><a href="#">Create</a></li>
+              			<li><a href="#">Display</a></li>
+              			<li><a href="#">Alter</a></li>
+              		</ul>
+              </li>
+              <li><a href="#exampledropdownDropdown9" aria-expanded="false" data-toggle="collapse">Tax Rate Setup</a>
+              	<ul id="exampledropdownDropdown9" class="collapse list-unstyled ">
+              			<li><a href="#">GST</a></li>
+              		</ul>
+              </li>
+            </ul>
+          </li-->
+         <!-- <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>>
+        </ul>
+<span class="heading">Invoice</span>
+        <ul-- class="list-unstyled">
+          <li><a href="#exampledropdownDropdown10" aria-expanded="false" data-toggle="collapse" >
+          	<i class="icon-padnote"></i>Sales Invoice</a>
+            <ul id="exampledropdownDropdown10" class="collapse list-unstyled ">
+				<li><a href="#">Create</a></li>
+				<li><a href="#">List</a></li>
+            </ul>
+        </li>
+          <li><a href="#exampledropdownDropdown11" aria-expanded="false" data-toggle="collapse" >
+          	<i class="icon-padnote"></i>Inventory Vouchers</a>
+            <ul id="exampledropdownDropdown11" class="collapse list-unstyled ">
+				<li><a href="#">Physical Stock Verification</a></li>
+				<li><a href="#">Material In and Material Out</a></li>
+				<li><a href="#">Delivery Note and Receipt Note</a></li>
+            </ul>
+        </li>
+        <li><a href="#exampledropdownDropdown12" aria-expanded="false" data-toggle="collapse" >
+          	<i class="icon-padnote"></i>Order Vouchers</a>
+            <ul id="exampledropdownDropdown12" class="collapse list-unstyled ">
+				<li><a href="#">Purchase Order and Sales Order</a></li>
+            </ul>
+        </li>
+        </ul-->
+        <span class="heading" style="margin-top: 15px;">Invoice</span>
+        <ul class="list-unstyled">
+          <li class={{ '' if not new_invoice_page else 'color_expan2' }}> <a href="{{ url_for('invoices.new_invoice') }}" class={{ '' if not new_invoice_page else 'color_expan2' }}> <i class="icon-chart"></i>Create</a></li>
+          <li class={{ '' if not invoice_list_page else 'color_expan2' }}> <a href="{{ url_for('invoices.index') }}"> <i class="icon-chart"></i>List </a></li>
+          <li class={{ '' if not serial_no_list_page else 'color_expan2' }}> <a href="{{ url_for('invoices.serial_no_datatable') }}"> <i class="icon-chart"></i>Serial No. List</a></li>
+            <!--li> <a href="#"> <i class="icon-chart"></i>Stock Summary </a></li>
+          <li> <a href="#"> <i class="icon-chart"></i>Ratio Analysis </a></li-->
+        </ul>
+      </nav>
+      <!-- Sidebar Navigation end-->

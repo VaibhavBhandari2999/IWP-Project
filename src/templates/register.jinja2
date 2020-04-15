@@ -1,0 +1,54 @@
+{% extends "statics.jinja2" %}
+{% block content %}
+<body>
+    <div class="login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Easy Accounting</h1>
+                  </div>
+                  <p>Please fill out the form to register with us.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form id="register-form" class="text-left form-validate" method="post">
+                    <div class="form-group-material">
+                      <input id="username" type="text" name="username" required data-msg="Username is required" class="input-material">
+                      <label for="username" class="label-material">Username</label>
+                    </div>
+                    <div class="form-group-material">
+                      <input id="email" type="email" name="email" required data-msg="Please enter a valid email address" class="input-material">
+                      <label for="email" class="label-material">Email Address      </label>
+                    </div>
+                    <div class="form-group-material">
+                      <input id="password" type="password" name="password" required data-msg="Please enter your password" class="input-material">
+                      <label for="password" class="label-material">Password </label>
+                    </div>
+                    <div class="form-group terms-conditions text-center">
+                      <input id="register-agree" name="register-Agree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
+                      <label for="register-agree">I agree with the terms and policy</label>
+                    </div>
+                    <div class="form-group text-center">
+                      <input id="register" type="submit" value="Register" class="btn btn-primary">
+                    </div>
+                  </form><small>Already have an account? </small><a href="{{url_for('users.login_user')}}" class="signup">Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p style="color: lightseagreen; font-weight: bolder">Design by <a href="#" class="external">Vaibhav Bhandari</a></p>
+      </div>
+    </div>
+{% endblock %}

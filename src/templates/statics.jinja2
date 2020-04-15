@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+#loading {
+position: fixed;
+width: 100%;
+height: 100vh;
+background: url('{{ url_for('static',filename='img/loader.gif') }}') no-repeat center center;
+z-index: 9999;
+}
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Easy Accounting</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/font.css') }}">
+    <!-- Google fonts - Muli-->
+    <!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700"-->
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.default.css') }}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/custom.css') }}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico') }}">
+ <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-select/bootstrap-select.min.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static',filename='DataTables/datatables.min.css') }}">
+
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <meta charset="UTF-8">
+    <style>
+        .datetimepicker {
+
+    padding: 4px;
+    margin-top: 1px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    direction: ltr;
+    z-index: 100000 !important;
+
+}
+    </style>
+</head>
+{% block content %}
+
+
+
+
+
+{% endblock %}
+{% if session['email'] != None %}
+<footer class="footer">
+    <div class="footer__block block no-margin-bottom">
+        <div class="container-fluid text-center">
+            <!-- Please do not remove the backlink to us unless you support us . It is part of the license conditions. Thank you for understanding :)-->
+            <p class="no-margin-bottom">2019 &copy; Easy Accounting. Design by <a href="#">Vaibhav Bhandari</a>.</p>
+
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+{% endif %}
+
+
+<!-- JavaScript files-->
+<!--script src="{{ url_for('static',filename='js/jquery-2.1.3.min.js')}}"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".clickable-row").click(function () {
+            window.location = $(this).data("href");
+        });
+    });
+</script-->
+
+<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+<!--script>
+    console.log("load");
+    $(document).ready(function () {
+
+    $('#loading').fadeOut(3000);
+})
+</script-->
+<script src="{{ url_for('static',filename='js/custom.js') }}"></script>
+
+<script src="{{ url_for('static',filename='vendor/popper.js/umd/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/jquery.cookie/jquery.cookie.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/chart.js/Chart.min.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/charts-home.js') }}"></script>
+<script src="{{ url_for('static',filename='js/front.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
+
+{% if datatable_page %}
+    <script>
+    console.log("_datatables");
+    </script>
+    <script src="{{ url_for('static',filename='DataTables/datatables.min.js') }}"></script>
+{% endif %}
+
+{% if invoice_list_page %}
+    <script>
+    console.log("invoice list");
+    </script>
+    <script src="{{ url_for('static',filename='js/page/invoice_pagetable.js') }}"></script>
+{% endif %}
+
+{% if item_list_page %}
+    <script>
+    console.log("item list");
+    </script>
+    <script src="{{ url_for('static',filename='js/page/item_pagetable.js') }}"></script>
+{% endif %}
+
+{% if party_list_page %}
+    <script>
+    console.log("party list");
+    </script>
+    <script src="{{ url_for('static',filename='js/page/party_pagetable.js') }}"></script>
+{% endif %}
+
+{% if serial_no_list_page %}
+    <script>
+    console.log("serial no list");
+    </script>
+    <script src="{{ url_for('static',filename='js/page/serial_no_pagetable.js') }}"></script>
+{% endif %}
+
+{% if new_item_page %}
+    <script>
+    console.log("invoice")
+    </script>
+    <script src="{{ url_for('static',filename='js/page/items.js') }}"></script>
+{% endif %}
+
+{% if new_party_page %}
+    <script>
+    console.log("party")
+    </script>
+    <script src="{{ url_for('static',filename='js/page/parties.js') }}"></script>
+{% endif %}
+
+{% if new_invoice_page %}
+    <script>
+    console.log("invoice")
+    </script>
+    <script src="{{ url_for('static',filename='js/page/invoices.js') }}"></script>
+{% endif %}
+
+{% if edit_invoice_page %}
+    <script>
+    console.log(" edit invoice")
+    </script>
+    <script src="{{ url_for('static',filename='js/page/edit_invoice.js') }}"></script>
+{% endif %}
+
+
+{% if company_page %}
+
+    <script>
+    console.log("company")
+    </script>
+    <script src="{{ url_for('static',filename='js/page/parties.js') }}"></script>
+{% endif %}
+
+
+<script>
+    $(document).ready(function(){
+
+$('.database_date').datetimepicker({
+      minView: 2,
+    pickTime: false,
+    language: 'pt-BR',
+    autoclose:true,
+    });
+});
+</script>
+</body>
+</html>
+
+
+
+
